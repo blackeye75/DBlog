@@ -98,7 +98,7 @@ export class Service {
       return await this.bucket.createFile(
         conf.appwriteBucketID,
         ID.unique(),
-        file,
+        file
       );
     } catch (error) {
       console.log("Appwrite service :: uploadFile :: error", error);
@@ -106,24 +106,18 @@ export class Service {
     }
   }
 
-  async deleteFile(fileID){
+  async deleteFile(fileID) {
     try {
-        await this.bucket.deleteFile(
-            conf.appwriteBucketID,
-            fileID,
-        )
-        return true;
+      await this.bucket.deleteFile(conf.appwriteBucketID, fileID);
+      return true;
     } catch (error) {
-        console.log("Appwrite service :: deleteFile :: error", error);
-        return false;
+      console.log("Appwrite service :: deleteFile :: error", error);
+      return false;
     }
   }
 
-  getFilePreview(fileId){
-    return this.bucket.getFilePreview(
-        conf.appwriteBucketID,
-        fileId,
-    )
+  getFilePreview(fileId) {
+    return this.bucket.getFilePreview(conf.appwriteBucketID, fileId);
   }
 }
 
