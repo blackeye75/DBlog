@@ -1,8 +1,10 @@
 import { useDispatch } from "react-redux";
 import "./App.css";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import authService from "./appwrite/auth";
 import { login, logout } from "../src/store/authSlice";
+import {Header,Footer} from "../src/components/index"
+import { Outlet } from "react-router-dom";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -24,7 +26,11 @@ function App() {
   return !loading ? (
     <div className="min-h-screen flex flex-wrap bg-gray-400">
       <div className="w-full block" >
-        <Headers/>
+        <Header/>
+        <main>
+          {/* <Outlet/> */}
+        </main>
+        <Footer/>
       </div>
     </div>
   ) : null;
