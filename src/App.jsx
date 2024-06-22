@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 import { useState,useEffect } from "react";
 import authService from "./appwrite/auth";
@@ -9,6 +9,8 @@ import { Outlet } from "react-router-dom";
 function App() {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
+  
+  // useSelector((state)=>console.log(state))
 
   useEffect(() => {
     authService
@@ -16,6 +18,7 @@ function App() {
       .then((userData) => {
         if (userData) {
           dispatch(login({ userData }));
+          // console.log(userData);
         } else {
           dispatch(logout());
         }
@@ -28,7 +31,7 @@ function App() {
       <div className="w-full block" >
         <Header/>
         <main>
-          {/* <Outlet/> */}
+          <Outlet/>
         </main>
         <Footer/>
       </div>

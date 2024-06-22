@@ -44,11 +44,9 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
                 "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
             }}
             onEditorChange={onChange}
-            
           />
         )}
       />
-      )
     </div>
   );
 }
