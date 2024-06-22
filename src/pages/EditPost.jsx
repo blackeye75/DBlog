@@ -13,7 +13,7 @@ const EditPost = () => {
       appwriteService.getPost(slug).then((post) => {
         if (post) {
           setpost(post);
-          console.log(post);
+          // console.log(post);
         }
       });
     } else {
