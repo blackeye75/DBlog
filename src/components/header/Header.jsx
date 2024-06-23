@@ -89,7 +89,11 @@ function Header() {
                     <li key={item.name} className="decoration-transparent">
                       <button
                         className="inline-block px-6 py-2 duration-200 text-xl hover:bg-blue-100 rounded-full "
-                        onClick={() => navigate(item.slug)}
+                        onClick={() =>{
+                          navigate(item.slug);
+                          setMenuOpen(false);
+                        }}
+                        
                       >
                         {item.name}
                       </button>
