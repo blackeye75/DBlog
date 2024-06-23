@@ -5,12 +5,22 @@ import { login } from "../store/authSlice";
 import { Button, Input, Logo } from "./index";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
+import eye from "../../src/assets/eye.png";
 
 function Signup() {
   const navigate = useNavigate();
   const [error, seterror] = useState("");
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
+  const [type, setType] = useState("password")
+
+  const toggelHandel=()=>{
+    if(type==="password"){
+      setType("text");
+    }else{
+      setType("password")
+    }
+  }
 
   const create = async (data) => {
     seterror("");
@@ -68,18 +78,23 @@ function Signup() {
                 validate: {
                   matchPatern: (value) =>
                     /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
-                    "Email address must be a valid address",
+                    "Email address must be a valid",
                 },
               })}
             />
-            <Input
-              label="Password"
-              type="password"
-              placeholder="Enter your Password"
-              {...register("passwprd", {
-                required: true,
-              })}
-            />
+            <div className="flex items-end">
+              <Input
+                label="Password"
+                type={type}
+                placeholder="Enter your Password"
+                {...register("password", {
+                  required: true,
+                })}
+              />
+              <div onClick={toggelHandel} >
+                <img className="w-[3vw] h-[3vw]" src={eye} />
+              </div>
+            </div>
             <Button type="submit" className="w-full">
               Create Account
             </Button>
