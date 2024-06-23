@@ -28,6 +28,10 @@ export default function PostForm({ post }) {
       if (file) {
         appwriteService.deleteFile(post.featuredImage);
       }
+      // console.log(post);
+      // if(!data.slug){
+      //   alert("Provide Valid Slug")
+      // }
       const dbPost = await appwriteService.updatePost(post.$id, {
         ...data,
         featuredImage: file ? file.$id : undefined,
@@ -69,7 +73,7 @@ export default function PostForm({ post }) {
       }
     });
     return () => subscription.unsubscribe();
-  }, [watch, slugTransform, setValue]);
+  }, [watch, slugTransform, setValue,[]]);
 
   return (
     <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
@@ -100,7 +104,7 @@ export default function PostForm({ post }) {
       </div>
       <div className="w-1/3 px-2">
         <Input
-          label="Featured Image :"
+          label="Featured Image:"
           type="file"
           className="mb-4"
           accept="image/png, image/jpg, image/jpeg, image/gif"
