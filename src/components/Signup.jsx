@@ -92,7 +92,7 @@ function Signup() {
                 })}
               />
               <div onClick={toggelHandel} >
-                <img className="w-[3vw] h-[3vw]" src={eye} />
+                <img className="w-[2rem] h-[2rem] pb-1" src={eye} />
               </div>
             </div>
             <Button type="submit" className="w-full">

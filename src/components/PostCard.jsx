@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 function PostCard({ $id, title, featuredImage }) {
   // console.log($id);
   return (
-    <div className="p-2" >
+    <div className="p-2 " >
       <Link to={`/post/${$id}`}>
-        <div className="w-full md:w-full  flex flex-col  bg-gray-100 rounded-xl  p-4">
-          <div className="w-full justify-center mb-4">
+        <div className="w-full md:w-full h-[50vh] overflow-hidden flex flex-col  bg-gray-100 rounded-xl  p-4">
+          <div className="w-full justify-center h-full  mb-4">
             <img
               src={appwriteService.getFilePreview(featuredImage)}
               alt={title}
-              className="rounded-xl w-"
+              className="rounded-xl object-contain h-4/5 w-full"
             />
           </div>
           <h2 className="text-xl font-bold" >{title}</h2>
