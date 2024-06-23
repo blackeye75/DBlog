@@ -77,7 +77,7 @@ export default function PostForm({ post }) {
 
   return (
     <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
-      <div className="flex">
+      <div className="flex flex-col">
         <div className="w-2/3 px-2">
           <Input
             label="Title :"
@@ -128,7 +128,6 @@ export default function PostForm({ post }) {
             {post ? "Update" : "Submit"}
           </Button>
         </div>
-      </div>
       <div className="px-2" >
         <RTE
           label="Content :"
@@ -136,6 +135,7 @@ export default function PostForm({ post }) {
           control={control}
           defaultValue={getValues("content")}
         />
+      </div>
       </div>
     </form>
   );
