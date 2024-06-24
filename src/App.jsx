@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import "./App.css";
 import { useState,useEffect } from "react";
 import authService from "./appwrite/auth";
