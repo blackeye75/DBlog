@@ -12,23 +12,23 @@ function Signup() {
   const [error, seterror] = useState("");
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
-  const [type, setType] = useState("password")
+  const [type, setType] = useState("password");
 
-  const toggelHandel=()=>{
-    if(type==="password"){
+  const toggelHandel = () => {
+    if (type === "password") {
       setType("text");
-    }else{
-      setType("password")
+    } else {
+      setType("password");
     }
-  }
+  };
 
   const create = async (data) => {
     seterror("");
     try {
       const userdata = await authService.createAccount(data);
       if (userdata) {
-        await authService.getCurrentUser();
-        if (userdata) dispatch(login(userdata));
+        const userData=await authService.getCurrentUser();
+        if (userData) dispatch(login(userData));
         navigate("/");
       }
     } catch (error) {
@@ -91,7 +91,7 @@ function Signup() {
                   required: true,
                 })}
               />
-              <div onClick={toggelHandel} >
+              <div onClick={toggelHandel}>
                 <img className="w-[2rem] h-[2rem] pb-1" src={eye} />
               </div>
             </div>
